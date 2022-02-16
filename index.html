@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>image slicer</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="input"><input type="number" min="1" max="10"id="inputnumber" placeholder="Enter position"><button onclick=sliceimage()>Slice</button></div>
+	<div class="container">
+		
+	
+	<div class="allimages">	<img src="https://image.pngaaa.com/674/3013674-middle.png" ></div></div>
+    <div id="slicedimage">
+
+	<p id="result"></p>
+	<canvas  id="canvas"></canvas><br>
+	<button onclick="refresh()">GetBack</button></div>
+</body>
+
+<script>
+$("#slicedimage").hide();
+function sliceimage() {
+
+var number=document.getElementById("inputnumber").value;
+if(number>=1 && number<=10){
+$(".container").hide();
+$("#slicedimage").show();
+$("#result").html(`Position:${number}`);
+   var heart = new Image();
+   heart.src = "https://image.pngaaa.com/674/3013674-middle.png";
+
+ 
+
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+context.clearRect(0,0,canvas.width,canvas.height);
+if(number==1){
+
+context.drawImage( heart, 130,60,159,300,20,20,180,300 );}
+else if(number==2){
+context.drawImage( heart,259,60,160,300,20,20,180,300 );}
+else if(number==3){
+	context.drawImage( heart,390,60,138,300,20,20,180,300 );
+}
+else if(number==4){
+context.drawImage( heart,503,59,145,300,20,20,180,300 );
+}
+else if(number==5){
+	context.clearRect(0,0,canvas.width,canvas.height);
+	context.drawImage( heart,630,30,145,300,20,3,150,280 );
+}
+else if(number==6){
+	context.drawImage( heart, 108,205,180,300,20,20,180,280 );
+}
+if(number==7){
+	context.drawImage( heart,259,206,158,300,20,20,180,300 );
+}
+if(number==8){
+	context.drawImage( heart,389,206,138,300,20,20,180,300 );
+}
+if(number==9){
+	context.drawImage( heart,503,206,145,300,20,20,180,300 );
+}
+if(number==10){
+	context.drawImage( heart,630,186,145,300,20,3,180,280 );
+
+}
+
+ }
+   
+  else{
+  	
+  	$("#slicedimage").hide();
+  	$(".container").show();
+  } 
+}
+    
+   
+function refresh(){
+	$(".container").show();
+	$("#slicedimage").hide();
+	$("#inputnumber").val("");
+}
+
+
+
+</script>
+<style>
+	.input{
+		margin:30px; 
+		font-size:20px;
+	}
+	button{
+		border-width:;
+		border-radius:4px;
+		font-size:20px;
+		background-color:#87ceeb;
+		
+	}
+	h1{
+		min-height:30px;
+	}
+	.container{
+		padding:0 1rem;
+		max-width:600px;
+		margin:0 auto;
+		
+
+	}
+	input{
+		
+		width:160px;
+		border-radius:5px;
+		font-size:20px;
+
+	}
+	body{
+		text-align:center;
+		font-weight:bold;
+		font-family:'Cormorant Garamond',serif;
+
+	}
+	h1{
+		font-size:50px;
+		margin:20px;
+	}
+	#slicedimage{
+       margin:50px;
+     	}
+	#canvas{
+		position:relative;
+		text-align: center;
+		margin:0;
+		padding-left:60px;
+		width:100%;
+		max-width:300px;
+		height:300px;
+	    padding-bottom:40px;
+	    padding-top:10px;
+		border-style:double;
+	}
+	p{
+		font-size:30px;
+		
+	}
+	img{
+		
+	width:100%;
+max-width:700px;
+height:400px;}
